@@ -7,10 +7,10 @@ plans = [
 ]
 
 # 旅行プランの表示
-disp_plan(plans)
+disp(plans)
 # 旅行プランの選択
 chosen_plan = select_plan(plans)
 # 人数の確定
-decide_people_num = choose_people_num(chosen_plan)
+decide_num_of_people = choose_people_num(chosen_plan)
 # 合計金額
-travel_price(chosen_plan, decide_people_num)
+calculate_travel_price(chosen_plan, decide_num_of_people)

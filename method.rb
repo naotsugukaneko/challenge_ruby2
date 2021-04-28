@@ -1,5 +1,5 @@
 # 旅行プランの表示
-def disp_plan(plans)
+def disp(plans)
   puts "旅行プランを選択してください。"
   plans.each.with_index(1) do |plan, i|
     puts "#{i}. #{plan[:place]}旅行(#{plan[:price]}円)"
@@ -17,26 +17,27 @@ def select_plan(plans)
   end
   plans[plan_num - 1]
 end
-# # 人数の確定
+
+# 人数の確定
 def choose_people_num(chosen_plan)
   puts "#{chosen_plan[:place]}旅行ですね。"
   puts ""
   puts "何名で予約されますか？"
   while true
     print "人数を入力 > "
-    people_num = gets.to_i
-    break if people_num > 1
+    decide_num_of_people = gets.to_i
+    break if decide_num_of_people >= 1
       puts "1名以上を選択して下さい。"
   end
-  people_num
+  decide_num_of_people
 end
 
-# # 合計金額
-def travel_price(chosen_plan, decide_people_num)
+# 合計金額
+def calculate_travel_price(chosen_plan, decide_num_of_people)
   puts ""
-  puts "#{decide_people_num}名ですね。"
-  total_price = decide_people_num * chosen_plan[:price]
-  if decide_people_num >= 5
+  puts "#{decide_num_of_people}名ですね。"
+  total_price = decide_num_of_people * chosen_plan[:price]
+  if decide_num_of_people >= 5
     puts "5名以上ですので10％割引となります"
     total_price *= 0.9
   end
