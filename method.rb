@@ -25,19 +25,19 @@ def choose_people_num(chosen_plan)
   puts "何名で予約されますか？"
   while true
     print "人数を入力 > "
-    decide_num_of_people = gets.to_i
-    break if decide_num_of_people >= 1
+    decided_num_of_people = gets.to_i
+    break if decided_num_of_people >= 1
       puts "1名以上を選択して下さい。"
   end
-  decide_num_of_people
+  decided_num_of_people
 end
 
 # 合計金額
-def calculate_travel_price(chosen_plan, decide_num_of_people)
+def calculate_travel_price(chosen_plan, decided_num_of_people)
   puts ""
-  puts "#{decide_num_of_people}名ですね。"
-  total_price = decide_num_of_people * chosen_plan[:price]
-  if decide_num_of_people >= 5
+  puts "#{decided_num_of_people}名ですね。"
+  total_price = decided_num_of_people * chosen_plan[:price]
+  if decided_num_of_people >= 5
     puts "5名以上ですので10％割引となります"
     total_price *= 0.9
   end
